@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Certificado Digital - Água Purificada</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+padding:40px;
+}
+
+.container{
+background:white;
+padding:40px;
+max-width:900px;
+margin:auto;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+text-align:center;
+}
+
+label{
+font-weight:bold;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:5px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+button{
+background:#0070f3;
+color:white;
+border:none;
+padding:12px;
+cursor:pointer;
+border-radius:4px;
+}
+
+button:hover{
+background:#0059c1;
+}
+
+.certificado{
+margin-top:40px;
+border:2px solid black;
+padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Sistema Certificado Água Purificada</h1>
+
+<label>Data da análise</label>
+<input id="data">
+
+<label>Ponto de coleta</label>
+<input id="ponto">
+
+<label>Aspecto</label>
+<input id="aspecto">
+
+<label>Cor</label>
+<input id="cor">
+
+<label>Odor</label>
+<input id="odor">
+
+<label>Condutividade (µS/cm)</label>
+<input id="cond">
+
+<label>Carbono Orgânico Total (ppb)</label>
+<input id="carbono">
+
+<button onclick="gerar()">Gerar Certificado</button>
+
+<div id="certificado" class="certificado"></div>
+
+</div>
+
+<script>
+
+function gerar(){
+
+let data = document.getElementById("data").value
+let ponto = document.getElementById("ponto").value
+let aspecto = document.getElementById("aspecto").value
+let cor = document.getElementById("cor").value
+let odor = document.getElementById("odor").value
+let cond = document.getElementById("cond").value
+let carbono = document.getElementById("carbono").value
+
+document.getElementById("certificado").innerHTML = `
+
+<h2 style="text-align:center">CERTIFICADO DE ANÁLISE</h2>
+<h3 style="text-align:center">ÁGUA PURIFICADA</h3>
+
+<p><b>Data da análise:</b> ${data}</p>
+<p><b>Ponto de coleta:</b> ${ponto}</p>
+
+<hr>
+
+<p><b>Aspecto:</b> ${aspecto}</p>
+<p><b>Cor:</b> ${cor}</p>
+<p><b>Odor:</b> ${odor}</p>
+<p><b>Condutividade:</b> ${cond} µS/cm</p>
+<p><b>Carbono Orgânico Total:</b> ${carbono} ppb</p>
+
+<hr>
+
+<p><b>Resultado:</b> CONFORME</p>
+
+<br>
+
+<p>Responsável: __________________________</p>
+
+`
+
+}
+
+</script>
+
+</body>
+</html>
